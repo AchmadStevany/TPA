@@ -10,7 +10,7 @@ class DetailSaldoNasabah extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_saldo_nasabah',
+        'id_nasabah',
         'id_transaksi',
         'id_penarikan_nasabah',
         'type_trans',
@@ -18,24 +18,18 @@ class DetailSaldoNasabah extends Model
     ];
 
     protected $casts = [
-        'id_saldo_nasabah' => 'integer',
+        'id_nasabah' => 'integer',
         'id_transaksi' => 'integer',
-        'id_penarikan_nasabah' => 'integer',
         'nominal' => 'integer',
     ];
 
-    public function saldo_nasabah()
+    public function nasabah()
     {
-        return $this->belongsTo(SaldoNasabah::class, 'id_saldo_nasabah');
+        return $this->belongsTo(Nasabah::class, 'id_nasabah');
     }
 
     public function transaksi()
     {
         return $this->belongsTo(Transaksi::class, 'id_transaksi');
-    }
-
-    public function penarikan_nasabah()
-    {
-        return $this->belongsTo(PenarikanNasabah::class, 'id_penarikan_nasabah');
     }
 }

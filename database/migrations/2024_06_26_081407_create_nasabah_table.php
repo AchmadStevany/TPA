@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('nasabah', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 255);
-            $table->string('nokk', 16);
-            $table->string('nik', 16);
             $table->text('alamat');
-            $table->string('handphone');
+            $table->integer('saldo');
             $table->string('email',255);
             $table->string('password',255);
             $table->string('role',255);

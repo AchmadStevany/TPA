@@ -4,8 +4,8 @@
     <!-- LOGO -->
     <div class="navbar-brand-box" style="background-color: lightgrey">
         <div class="logo">
-            <span class="logo-lg" style="margin-left: 20px">
-                <img src="{{ URL::asset('/assets/images/coffeeshop.png') }}" alt="" height="80" width="100">
+            <span class="logo-lg" style="margin-left: 30px">
+                <img src="{{ URL::asset('/assets/images/logo-bank-sampah.jpg') }}" alt="" height="70" width=90">
             </span>
         </div>
     </div>
@@ -24,25 +24,25 @@
 
                 <li>
                     <a href="/dashboard">
-                        <i class="uil-home-alt"></i>
+                        <i class="uil-house-user"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/product">
-                        <i class="uil-coffee"></i>
+                    <a href="/sampah">
+                        <i class="uil-trash-alt"></i>
                         <span>Mengelola Sampah</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/customer">
-                        <i class="uil-users-alt"></i>
+                    <a href="/#">
+                        <i class="uil-dollar-alt"></i>
                         <span>Mengelola Saldo</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/order">
-                        <i class="uil-transaction"></i>
+                    <a href="/#">
+                        <i class="uil-money-withdrawal"></i>
                         <span>Tarik Saldo</span>
                     </a>
                 </li>

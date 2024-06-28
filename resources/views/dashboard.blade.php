@@ -5,7 +5,7 @@
 @section('content')
     @component('layouts.breadcrumb')
         @slot('pagetitle')
-            Bank Sampah
+            Bank Sampah Resik
         @endslot
         @slot('title')
             Dashboard

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('detail_saldo_nasabah', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_saldo_nasabah');
+            $table->unsignedBigInteger('id_nasabah');
             $table->unsignedBigInteger('id_transaksi');
-            $table->unsignedBigInteger('id_penarikan_nasabah');
             $table->string('type_trans',255);
             $table->integer('nominal');
             $table->timestamps();

@@ -11,10 +11,8 @@ class Nasabah extends Model
 
     protected $fillable = [
         'nama',
-        'nokk',
-        'nik',
         'alamat',
-        'handphone',
+        'saldo',
         'email',
         'password',
         'role',
