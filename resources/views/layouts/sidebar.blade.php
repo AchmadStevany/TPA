@@ -31,13 +31,13 @@
                 <li>
                     <a href="/sampah">
                         <i class="uil-trash-alt"></i>
-                        <span>Mengelola Sampah</span>
+                        <span>Data Sampah</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/#">
-                        <i class="uil-dollar-alt"></i>
-                        <span>Mengelola Saldo</span>
+                    <a href="/nasabah">
+                        <i class="uil-user-square"></i>
+                        <span>Data Nasabah</span>
                     </a>
                 </li>
                 <li>

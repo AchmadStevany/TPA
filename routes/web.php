@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SampahController;
 use App\Http\Controllers\KategoriSampahController;
+use App\Http\Controllers\NasabahController;
+use App\Models\Nasabah;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,6 @@ Route::get('/kategorisampah/show/{kategori}', [KategoriSampahController::class, 
 Route::get('/kategorisampah/edit/{kategori}', [KategoriSampahController::class, 'edit'])->name('kategori_sampah.edit');
 Route::post('/kategorisampah/update/{kategori}', [KategoriSampahController::class, 'update'])->name('kategori_sampah.update');
 Route::get('/kategorisampah/delete/{kategori}', [KategoriSampahController::class, 'destroy'])->name('kategori_sampah.delete');
+
+//Nasabah
+Route::get('/nasabah', [NasabahController::class, 'index'])->name('nasabah.index');

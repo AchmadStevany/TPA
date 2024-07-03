@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-    Product
+    Sampah
 @endsection
 @section('content')
     @component('layouts.breadcrumb')

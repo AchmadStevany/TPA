@@ -9,6 +9,8 @@ class Nasabah extends Model
 {
     use HasFactory;
 
+    public $table = "nasabah";
+
     protected $fillable = [
         'nama',
         'alamat',
