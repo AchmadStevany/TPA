@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-header">Nasabah</div>
                     <div class="card-body">
-                        {{-- <a href="{{ route('sampah.create') }}"><button class="btn btn-success btn-sm mb-3"><i class="uil uil-plus"></i> Tambah Sampah</button></a> --}}
+                        <a href="{{ route('nasabah.create') }}"><button class="btn btn-success btn-sm mb-3"><i class="uil uil-plus"></i> Tambah Nasabah</button></a>
                         <table id="table" class="table display cell-border">
                             <thead>
                                 <tr>
@@ -25,6 +25,7 @@
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Saldo</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,6 +35,11 @@
                                         <td>{{ $n->nama }}</td>
                                         <td>{{ $n->alamat }}</td>
                                         <td>Rp. {{ $n->saldo }}</td>
+                                        <td>
+                                            <a href="{{ route('nasabah.show', $n->id) }}" class="btn btn-primary btn-sm">View</a>
+                                            <a href="{{ route('nasabah.edit', $n->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                            <a href="{{ route('nasabah.delete', $n->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

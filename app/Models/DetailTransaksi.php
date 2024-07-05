@@ -9,6 +9,8 @@ class DetailTransaksi extends Model
 {
     use HasFactory;
 
+    public $table = "detail_transaksi";
+
     protected $fillable = [
         'id_transaksi',
         'id_sampah',

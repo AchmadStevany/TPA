@@ -42,3 +42,9 @@ Route::get('/kategorisampah/delete/{kategori}', [KategoriSampahController::class
 
 //Nasabah
 Route::get('/nasabah', [NasabahController::class, 'index'])->name('nasabah.index');
+Route::get('/nasabah/create', [NasabahController::class, 'create'])->name('nasabah.create');
+Route::post('/nasabah/store', [NasabahController::class, 'store'])->name('nasabah.store');
+Route::get('/nasabah/show/{nasabah}', [NasabahController::class, 'show'])->name('nasabah.show');
+Route::get('/nasabah/edit/{nasabah}', [NasabahController::class, 'edit'])->name('nasabah.edit');
+Route::post('/nasabah/update/{nasabah}', [NasabahController::class, 'update'])->name('nasabah.update');
+Route::get('/nasabah/delete/{nasabah}', [NasabahController::class, 'destroy'])->name('nasabah.delete');

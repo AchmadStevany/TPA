@@ -13,69 +13,57 @@ class NasabahController extends Controller
         return view('nasabah.index', compact('nasabah'));
     }
 
-    // public function create()
-    // {
-    //     $kategori = KategoriSampah::all();
-    //     return view('sampah.create', compact('kategori'));
-    // }
+    public function create()
+    {
+        return view('nasabah.create');
+    }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'id_kategori_sampah' => 'required|integer',
-    //         'sampah' => 'required|string',
-    //         'satuan' => 'required|string',
-    //         'harga_satuan' => 'required|integer',
-    //     ]);
-    //     $data = [
-    //         "sampah" => $request->nama_sampah,
-    //         "id_kategori_sampah" => $request->kategori_sampah,
-    //         "satuan" => $request->satuan,
-    //         "harga_satuan" => $request->harga_satuan,
-    //     ];
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama_nasabah' => 'required|string',
+            'alamat' => 'required|string',
+        ]);
+        $data = [
+            "nama" => $request->nama_nasabah,
+            "alamat" => $request->alamat,
+        ];
 
-    //     Sampah::create($data);
+        Nasabah::create($data);
 
-    //     return redirect()->route('sampah.index')->with('success', 'sampah berhasil ditambahkan.');
-    // }
+        return redirect()->route('nasabah.index')->with('success', 'nasabah berhasil ditambahkan.');
+    }
 
-    // public function show(Sampah $sampah)
-    // {
-    //     return view('sampah.show', compact('sampah'));
-    // }
+    public function show(Nasabah $nasabah)
+    {
+        return view('nasabah.show', compact('nasabah'));
+    }
 
-    // public function edit(Sampah $sampah)
-    // {
-    //     $kategori = KategoriSampah::all();
-    //     $nama_kategori = KategoriSampah::where("id",$sampah->id_kategori_sampah)
-    //                 ->get();
-    //     return view('sampah.edit', compact('sampah','kategori','nama_kategori'));
-    // }
+    public function edit(Nasabah $nasabah)
+    {
+        return view('nasabah.edit', compact('nasabah'));
+    }
 
-    // public function update(Request $request, Sampah $sampah)
-    // {
-    //     $request->validate([
-    //         'id_kategori_sampah' => 'required|integer',
-    //         'sampah' => 'required|string',
-    //         'satuan' => 'required|string',
-    //         'harga_satuan' => 'required|integer',
-    //     ]);
-    //     $data = [
-    //         "sampah" => $request->nama_sampah,
-    //         "id_kategori_sampah" => $request->kategori_sampah,
-    //         "satuan" => $request->satuan,
-    //         "harga_satuan" => $request->harga_satuan,
-    //     ];
+    public function update(Request $request, Nasabah $nasabah)
+    {
+        $request->validate([
+            'nama_nasabah' => 'required|string',
+            'alamat' => 'required|string',
+        ]);
+        $data = [
+            "nama" => $request->nama_nasabah,
+            "alamat" => $request->alamat,
+        ];
 
-    //     $sampah->update($data);
+        $nasabah->update($data);
 
-    //     return redirect()->route('sampah.index')->with('success', 'Sampah Berhasil di Update.');
-    // }
+        return redirect()->route('nasabah.index')->with('success', 'Nasabah Berhasil di Update.');
+    }
 
-    // public function destroy(Sampah $sampah)
-    // {
-    //     $sampah->delete();
+    public function destroy(Nasabah $nasabah)
+    {
+        $nasabah->delete();
 
-    //     return redirect()->route('sampah.index')->with('success', 'Sampah Berhasil di Hapus.');
-    // }
+        return redirect()->route('nasabah.index')->with('success', 'Nasabah Berhasil di Hapus.');
+    }
 }

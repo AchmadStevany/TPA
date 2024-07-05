@@ -40,12 +40,6 @@
                         <span>Data Nasabah</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/#">
-                        <i class="uil-money-withdrawal"></i>
-                        <span>Tarik Saldo</span>
-                    </a>
-                </li>
             </ul>
         </div>
         <!-- Sidebar -->
