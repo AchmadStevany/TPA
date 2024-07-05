@@ -54,5 +54,14 @@
     </div>
 @endsection
 @section('script')
+<script>
+    new DataTable('#table', {
+        layout: {
+            topStart: {
+                buttons: ['excelHtml5']
+            }
+        }
+    });
+</script>
 @endsection
 
