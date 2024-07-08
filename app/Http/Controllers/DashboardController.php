@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $jml_nasabah = count(Nasabah::all());
 
         $data_pendapatan = DB::select("SELECT detail_transaksi.id_transaksi,detail_transaksi.id_sampah,detail_transaksi.quantity,transaksi.tanggal_transaksi,sampah.harga_satuan FROM detail_transaksi
-        LEFT JOIN transaksi ON detail_transaksi.id_transaksi = transaksi.id AND transaksi.tanggal_transaksi BETWEEN '31-12-2020' AND '01-01-2022'
+        LEFT JOIN transaksi ON detail_transaksi.id_transaksi = transaksi.id AND transaksi.tanggal_transaksi BETWEEN '2020-12-31' AND '2022-01-01'
         JOIN sampah ON detail_transaksi.id_sampah = sampah.id
         GROUP BY detail_transaksi.id_transaksi,detail_transaksi.id_sampah,detail_transaksi.quantity,transaksi.tanggal_transaksi,sampah.harga_satuan");
 

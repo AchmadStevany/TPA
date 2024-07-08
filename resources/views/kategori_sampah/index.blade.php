@@ -46,8 +46,36 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Kategori Sampah Terbaik</div>
+                    <div class="card-body">
+                        <table id="table2" class="table display cell-border">
+                            <thead>
+                                <tr>
+                                    <th class="col-3">No</th>
+                                    <th class="col-6">Nama Kategori</th>
+                                    <th class="col-3">Nilai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data_nilai_kategori as $dnk)
+                                    <tr>
+                                        <td>{{ $dnk["no"] }}</td>
+                                        <td>{{ $dnk["nama"] }}</td>
+                                        <td>{{ $dnk["nilai"] }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
 @section('script')
+<script>
+    new DataTable('#table2');
+</script>
 @endsection
