@@ -81,8 +81,8 @@ class KategoriSampahController extends Controller
         foreach ($nilai_normalisasi_jual as $nnj) {
             $nilai_preferensi_jual[] = $nnj*0.4;
         }
-        foreach ($nilai_normalisasi_volume as $nnv) {
-            $nilai_preferensi_dampak[] = $nnv*0.3;
+        foreach ($nilai_normalisasi_dampak as $nnd) {
+            $nilai_preferensi_dampak[] = $nnd*0.3;
         }
         foreach ($nilai_normalisasi_volume as $nnv) {
             $nilai_preferensi_volume[] = $nnv*0.3;

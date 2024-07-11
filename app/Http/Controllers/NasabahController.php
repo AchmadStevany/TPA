@@ -89,11 +89,9 @@ class NasabahController extends Controller
         foreach ($nilai_akhir as $na) {
             $nilai_akhir2[] = round($na,2);
         }
-        $no = 1;
         $i = 0;
         foreach ($nasabah as $nas) {
             $data_nilai_nasabah[] = [
-                "no" => $no++,
                 "nama" => $nas->nama,
                 "nilai" => $nilai_akhir2[$i++],
             ];

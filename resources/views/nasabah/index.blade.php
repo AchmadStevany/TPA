@@ -54,7 +54,6 @@
                         <table id="table2" class="table display cell-border">
                             <thead>
                                 <tr>
-                                    <th class="col-3">No</th>
                                     <th class="col-6">Nama</th>
                                     <th class="col-3">Nilai</th>
                                 </tr>
@@ -62,7 +61,6 @@
                             <tbody>
                                 @foreach ($data_nilai_nasabah as $dnn)
                                     <tr>
-                                        <td>{{ $dnn["no"] }}</td>
                                         <td>{{ $dnn["nama"] }}</td>
                                         <td>{{ $dnn["nilai"] }}</td>
                                     </tr>
@@ -84,7 +82,9 @@
             }
         }
     });
-    new DataTable('#table2');
+    new DataTable('#table2', {
+        order: [[1,'desc']]
+    });
 </script>
 @endsection
 

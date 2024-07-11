@@ -53,7 +53,6 @@
                         <table id="table2" class="table display cell-border">
                             <thead>
                                 <tr>
-                                    <th class="col-3">No</th>
                                     <th class="col-6">Nama Kategori</th>
                                     <th class="col-3">Nilai</th>
                                 </tr>
@@ -61,7 +60,6 @@
                             <tbody>
                                 @foreach ($data_nilai_kategori as $dnk)
                                     <tr>
-                                        <td>{{ $dnk["no"] }}</td>
                                         <td>{{ $dnk["nama"] }}</td>
                                         <td>{{ $dnk["nilai"] }}</td>
                                     </tr>
@@ -76,6 +74,8 @@
 @endsection
 @section('script')
 <script>
-    new DataTable('#table2');
+    new DataTable('#table2', {
+        order: [[1,'desc']]
+    });
 </script>
 @endsection

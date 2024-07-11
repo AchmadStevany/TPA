@@ -29,6 +29,15 @@ class DashboardController extends Controller
         }
         $total_sampah = array_sum($qty);
 
-        return view('Dashboard',compact('jml_nasabah','total_pendapatan','total_sampah'));
+        $data_grafik = DB::select("SELECT COUNT(sampah.sampah) as jml_sampah, kategori_sampah.nama_kategori_sampah FROM sampah
+        JOIN kategori_sampah ON sampah.id_kategori_sampah = kategori_sampah.id
+        GROUP BY kategori_sampah.nama_kategori_sampah");
+
+        foreach ($data_grafik as $dg) {
+            $data_jml_sampah[] = $dg->jml_sampah;
+            $data_kategori[] = $dg->nama_kategori_sampah;
+        }
+
+        return view('Dashboard',compact('jml_nasabah','total_pendapatan','total_sampah','data_jml_sampah','data_kategori'));
     }
 }
