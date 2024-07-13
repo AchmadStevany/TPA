@@ -29,6 +29,10 @@
                                     <label for="alamat">Alamat Nasabah</label>
                                     <input type="text" name="alamat" id="alamat" class="form-control" value="{{ $nasabah->alamat }}">
                                 </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="saldo">Saldo Nasabah</label>
+                                    <input type="number" name="saldo" id="saldo" class="form-control" value="{{ $nasabah->saldo }}">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm mt-3">Update</button>
                             <a href="/nasabah" class="btn btn-secondary btn-sm position-absolute end-0 mt-3 me-3"><i class="uil uil-arrow-left"></i> Kembali</a>

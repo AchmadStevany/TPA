@@ -28,72 +28,72 @@ class SampahNasabahController extends Controller
         return view('sampah-nasabah.index', compact('data_sampah','total_harga'));
     }
 
-    public function create()
-    {
-        $sampah = Sampah::all();
-        return view('sampah-nasabah.create', compact('sampah'));
-    }
+    // public function create()
+    // {
+    //     $sampah = Sampah::all();
+    //     return view('sampah-nasabah.create', compact('sampah'));
+    // }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'tanggal' => 'required|date',
-            'sampah' => 'required|string',
-            'quantity' => 'required|integer',
-        ]);
-        $nama_nasabah = $nama = Auth::user()->name;
-        $id_nasabah = DB::select("SELECT id from nasabah WHERE nama='$nama_nasabah'");
-        foreach ($id_nasabah as $idn) {
-            $idnas = $idn;
-        }
-        foreach ($idnas as $i) {
-            $idnasabah = $i;
-        }
-        $data1 = [
-            "id_nasabah" => $idnasabah,
-            "tanggal_transaksi" => $request->tanggal,
-        ];
-        $id_transaksi = DB::table('transaksi')->select('id')->orderBy("id","desc")->limit(1)->get();
-        foreach ($id_transaksi as $id) {
-            $idtrans = $id+1;
-        }
-        foreach ($idtrans as $idt) {
-            $idtransaksi = $idt+1;
-        }
-        $data2 = [
-            "id_transaksi" => $idtransaksi,
-            "id_sampah" => $request->sampah,
-            "quantity" => $request->quantity
-        ];
-        $saldo_nasabah = DB::table("nasabah")->select("saldo")->where("nama","$nama_nasabah");
-        foreach ($saldo_nasabah as $sn) {
-            $saldo = $sn;
-        }
-        foreach ($saldo as $s) {
-            $saldoawal = $s;
-        }
-        $harga_sampah = DB::table("sampah")->select("harga_satuan")->where("id","$request->sampah");
-        foreach ($harga_sampah as $hs) {
-            $harga = $hs;
-        }
-        foreach ($harga as $h) {
-            $hargasampah = $h;
-        }
-        $data3 = [
-            "saldo" => $saldoawal+$request->quantity*$hargasampah
-        ];
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'tanggal' => 'required|date',
+    //         'sampah' => 'required|string',
+    //         'quantity' => 'required|integer',
+    //     ]);
+    //     $nama_nasabah = $nama = Auth::user()->name;
+    //     $id_nasabah = DB::select("SELECT id from nasabah WHERE nama='$nama_nasabah'");
+    //     foreach ($id_nasabah as $idn) {
+    //         $idnas = $idn;
+    //     }
+    //     foreach ($idnas as $i) {
+    //         $idnasabah = $i;
+    //     }
+    //     $data1 = [
+    //         "id_nasabah" => $idnasabah,
+    //         "tanggal_transaksi" => $request->tanggal,
+    //     ];
+    //     $id_transaksi = DB::table('transaksi')->select('id')->orderBy("id","desc")->limit(1)->get();
+    //     foreach ($id_transaksi as $id) {
+    //         $idtrans = $id+1;
+    //     }
+    //     foreach ($idtrans as $idt) {
+    //         $idtransaksi = $idt+1;
+    //     }
+    //     $data2 = [
+    //         "id_transaksi" => $idtransaksi,
+    //         "id_sampah" => $request->sampah,
+    //         "quantity" => $request->quantity
+    //     ];
+    //     $saldo_nasabah = DB::table("nasabah")->select("saldo")->where("nama","$nama_nasabah");
+    //     foreach ($saldo_nasabah as $sn) {
+    //         $saldo = $sn;
+    //     }
+    //     foreach ($saldo as $s) {
+    //         $saldoawal = $s;
+    //     }
+    //     $harga_sampah = DB::table("sampah")->select("harga_satuan")->where("id","$request->sampah");
+    //     foreach ($harga_sampah as $hs) {
+    //         $harga = $hs;
+    //     }
+    //     foreach ($harga as $h) {
+    //         $hargasampah = $h;
+    //     }
+    //     $data3 = [
+    //         "saldo" => $saldoawal+$request->quantity*$hargasampah
+    //     ];
 
-        DB::beginTransaction();
-        try {
-            DB::table('transaksi')->insert($data1);
-            DB::table('detail_transaksi')->insert($data2);
-            DB::table('nasabah')->where("id","$idnasabah")->update($data3);
-            return redirect()->route('sampah-nasabah.index')->with('success', 'sampah berhasil ditambahkan.');
-        } catch (\Throwable $th) {
-            DB::rollBack();
-            return redirect()->route('sampah-nasabah.index')->with('error', 'sampah berhasil ditambahkan.');
-        }
-    }
+    //     DB::beginTransaction();
+    //     try {
+    //         DB::table('transaksi')->insert($data1);
+    //         DB::table('detail_transaksi')->insert($data2);
+    //         DB::table('nasabah')->where("id","$idnasabah")->update($data3);
+    //         return redirect()->route('sampah-nasabah.index')->with('success', 'sampah berhasil ditambahkan.');
+    //     } catch (\Throwable $th) {
+    //         DB::rollBack();
+    //         return redirect()->route('sampah-nasabah.index')->with('error', 'sampah berhasil ditambahkan.');
+    //     }
+    // }
 
     // public function show(Sampah $sampah)
     // {

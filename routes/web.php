@@ -45,8 +45,6 @@ Route::get('/sampah/delete/{sampah}', [SampahController::class, 'destroy'])->nam
 
 //sampah-nasabah
 Route::get('/sampah-nasabah', [SampahNasabahController::class, 'index'])->name('sampah-nasabah.index')->middleware('auth');
-Route::get('/sampah-nasabah/create', [SampahNasabahController::class, 'create'])->name('sampah-nasabah.create')->middleware('auth');
-Route::post('/sampah-nasabah/store', [SampahNasabahController::class, 'store'])->name('sampah-nasabah.store');
 
 //Kategori Sampah
 Route::get('/kategorisampah', [KategoriSampahController::class, 'index'])->name('kategori_sampah.index')->middleware('auth');

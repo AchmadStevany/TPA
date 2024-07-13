@@ -25,7 +25,6 @@
                 <div class="card">
                     <div class="card-header">Sampah</div>
                     <div class="card-body">
-                        <a href="{{ route('sampah-nasabah.create') }}"><button class="btn btn-success btn-sm mb-3"><i class="uil uil-plus"></i> Tambah Sampah</button></a>
                         <table id="table" class="table display cell-border">
                             <thead>
                                 <tr>

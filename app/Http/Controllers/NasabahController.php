@@ -135,10 +135,12 @@ class NasabahController extends Controller
         $request->validate([
             'nama_nasabah' => 'required|string',
             'alamat' => 'required|string',
+            'saldo' => 'required|integer'
         ]);
         $data = [
             "nama" => $request->nama_nasabah,
             "alamat" => $request->alamat,
+            "saldo" => $request->saldo
         ];
 
         $nasabah->update($data);
