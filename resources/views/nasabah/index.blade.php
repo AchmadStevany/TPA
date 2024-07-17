@@ -29,7 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($nasabah as $n)
+                                @foreach ($data_nasabah as $n)
                                     <tr>
                                         <td>{{ $n->id }}</td>
                                         <td>{{ $n->nama }}</td>

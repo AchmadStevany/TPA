@@ -10,7 +10,14 @@ class NasabahController extends Controller
 {
     public function index()
     {
-        $nasabah = Nasabah::all();
+        $data_nasabah = Nasabah::all();
+
+        $nasabah = DB::select("SELECT transaksi.id_nasabah, nasabah.nama, nasabah.saldo FROM transaksi
+        RIGHT JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id
+        JOIN nasabah ON nasabah.id = transaksi.id_nasabah
+        JOIN sampah ON sampah.id = detail_transaksi.id_sampah
+        GROUP BY transaksi.id_nasabah, nasabah.nama");
+
         $data_banyak_jenis_sampah = DB::select("SELECT transaksi.id_nasabah, nasabah.nama, COUNT(DISTINCT sampah.id_kategori_sampah) as banyak_jenis_sampah FROM transaksi
         RIGHT JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id
         JOIN nasabah ON nasabah.id = transaksi.id_nasabah
@@ -96,7 +103,7 @@ class NasabahController extends Controller
                 "nilai" => $nilai_akhir2[$i++],
             ];
         }
-        return view('nasabah.index', compact('nasabah','data_nilai_nasabah'));
+        return view('nasabah.index', compact('data_nasabah','data_nilai_nasabah'));
     }
 
     public function create()
@@ -113,6 +120,7 @@ class NasabahController extends Controller
         $data = [
             "nama" => $request->nama_nasabah,
             "alamat" => $request->alamat,
+            "saldo" => 0,
         ];
 
         Nasabah::create($data);

@@ -23,8 +23,8 @@ class SampahController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_kategori_sampah' => 'required|integer',
-            'sampah' => 'required|string',
+            'kategori_sampah' => 'required|integer',
+            'nama_sampah' => 'required|string',
             'satuan' => 'required|string',
             'harga_satuan' => 'required|integer',
         ]);
