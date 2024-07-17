@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardNasabahController;
 use App\Http\Controllers\SampahNasabahController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,7 @@ Route::get('/nasabah/show/{nasabah}', [NasabahController::class, 'show'])->name(
 Route::get('/nasabah/edit/{nasabah}', [NasabahController::class, 'edit'])->name('nasabah.edit');
 Route::post('/nasabah/update/{nasabah}', [NasabahController::class, 'update'])->name('nasabah.update');
 Route::get('/nasabah/delete/{nasabah}', [NasabahController::class, 'destroy'])->name('nasabah.delete');
+
+//Transaksi
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.create')->middleware('auth');
+Route::post('/transaksi/store', [TransaksiController::class, 'store'])->name('transaksi.store')->middleware('auth');

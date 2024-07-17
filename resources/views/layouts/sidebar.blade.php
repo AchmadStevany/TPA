@@ -40,6 +40,12 @@
                         <span>Data Nasabah</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/transaksi">
+                        <i class="uil-transaction"></i>
+                        <span>Transaksi</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
