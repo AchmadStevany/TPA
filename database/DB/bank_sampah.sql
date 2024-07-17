@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 11/07/2024 14:17:20
+ Date: 18/07/2024 00:40:23
 */
 
 SET NAMES utf8mb4;
@@ -1114,13 +1114,13 @@ CREATE TABLE `nasabah`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 256 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of nasabah
 -- ----------------------------
-INSERT INTO `nasabah` VALUES (1, 'Yasak', 'PBI BLOK EC 03', 53480, NULL, NULL);
-INSERT INTO `nasabah` VALUES (2, 'Yayuk', 'PBI BLOK DY 18', 93500, NULL, NULL);
+INSERT INTO `nasabah` VALUES (1, 'Yasak', 'PBI BLOK EC 03', 54480, NULL, '2024-07-17 15:40:37');
+INSERT INTO `nasabah` VALUES (2, 'Yayuk', 'PBI BLOK DY 18', 94500, NULL, '2024-07-17 16:28:03');
 INSERT INTO `nasabah` VALUES (3, 'Reza', 'PBI BLOK DV 06', 43400, NULL, NULL);
 INSERT INTO `nasabah` VALUES (4, 'Koni', 'PBI BLOK DY 06', 89600, NULL, NULL);
 INSERT INTO `nasabah` VALUES (5, 'Vita', 'PBI BLOK DV 03', 17700, NULL, NULL);
@@ -2016,12 +2016,13 @@ CREATE TABLE `users`  (
   `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (2, 'admin', 'admin@gmail.com', NULL, '$2y$10$dIIJHWGo0jM9gPwW95r.WucBOAfBd2Yo/V5FBdBKmXonR1eUniUEu', NULL, '2024-07-10 10:12:58', '2024-07-10 10:12:58', 'admin');
 INSERT INTO `users` VALUES (3, 'Yayuk', 'Yayuk@gmail.com', NULL, '$2y$10$KVgTdQ7J3t1/3Hs0MDGvyOsJLKtreaMWwhgEjKYLbWisoyJElOiAa', NULL, '2024-07-11 05:11:14', '2024-07-11 05:11:14', 'nasabah');
+INSERT INTO `users` VALUES (4, 'Yasak', 'Yasak@gmail.com', NULL, '$2y$10$i5XnLIGobB7S336TZnhAqeMGglE4kVIwXA0QLWfiYp/alpOfBUKWS', NULL, '2024-07-17 16:21:38', '2024-07-17 16:21:38', 'nasabah');
 
 SET FOREIGN_KEY_CHECKS = 1;
