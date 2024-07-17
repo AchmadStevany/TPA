@@ -16,7 +16,7 @@ class DashboardNasabahController extends Controller
         RIGHT JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id
         JOIN nasabah ON nasabah.id = transaksi.id_nasabah
         JOIN sampah ON sampah.id = detail_transaksi.id_sampah
-        GROUP BY transaksi.id_nasabah, nasabah.nama");
+        GROUP BY transaksi.id_nasabah, nasabah.nama, nasabah.saldo");
 
         $data_banyak_jenis_sampah = DB::select("SELECT transaksi.id_nasabah, nasabah.nama, COUNT(DISTINCT sampah.id_kategori_sampah) as banyak_jenis_sampah FROM transaksi
         RIGHT JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id
