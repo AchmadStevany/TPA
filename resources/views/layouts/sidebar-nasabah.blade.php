@@ -21,13 +21,6 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" style="color:#383c40;font-weight:bold">Menu</li>
-
-                <li>
-                    <a href="/dashboard-nasabah">
-                        <i class="uil-house-user"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
                 <li>
                     <a href="/sampah-nasabah">
                         <i class="uil-trash-alt"></i>

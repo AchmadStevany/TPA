@@ -38,11 +38,11 @@ class DashboardController extends Controller
             $data_kategori[] = $dg->nama_kategori_sampah;
         }
 
-        $nasabah = DB::select("SELECT transaksi.id_nasabah, nasabah.nama, nasabah.saldo FROM transaksi
+        $nasabah = DB::select("SELECT transaksi.id_nasabah, nasabah.nama, nasabah.alamat, nasabah.saldo, COUNT(DISTINCT sampah.id_kategori_sampah) as banyak_jenis_sampah, SUM(detail_transaksi.quantity) as volume FROM transaksi
         RIGHT JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id
         JOIN nasabah ON nasabah.id = transaksi.id_nasabah
         JOIN sampah ON sampah.id = detail_transaksi.id_sampah
-        GROUP BY transaksi.id_nasabah, nasabah.nama, nasabah.saldo");
+        GROUP BY transaksi.id_nasabah, nasabah.nama, nasabah.saldo, nasabah.alamat");
 
         $data_banyak_jenis_sampah = DB::select("SELECT transaksi.id_nasabah, nasabah.nama, COUNT(DISTINCT sampah.id_kategori_sampah) as banyak_jenis_sampah FROM transaksi
         RIGHT JOIN detail_transaksi ON detail_transaksi.id_transaksi = transaksi.id
@@ -117,19 +117,20 @@ class DashboardController extends Controller
         }
 
         for ($i=0; $i < count($nilai_preferensi_jual); $i++) {
-            $nilai_akhir[] = $nilai_preferensi_jual[$i]+$nilai_preferensi_jenis[$i]+$nilai_preferensi_volume[$i];
-        }
-        foreach ($nilai_akhir as $na) {
-            $nilai_akhir2[] = round($na,2);
+            $nilai_akhir[] = round($nilai_preferensi_jual[$i]+$nilai_preferensi_jenis[$i]+$nilai_preferensi_volume[$i],2);
         }
         $i = 0;
         foreach ($nasabah as $nas) {
-            $data_nilai_nasabah[] = [
+            $data_nasabah_terbaik[] = [
                 "nama" => $nas->nama,
-                "nilai" => $nilai_akhir2[$i++],
+                "alamat" => $nas->alamat,
+                "volume" => $nas->volume,
+                "jenis" => $nas->banyak_jenis_sampah,
+                "pendapatan" => $nas->saldo,
+                "nilai" => $nilai_akhir[$i++]
             ];
         }
 
-        return view('Dashboard',compact('jml_nasabah','total_pendapatan','total_sampah','data_jml_sampah','data_kategori','data_nilai_nasabah'));
+        return view('Dashboard',compact('jml_nasabah','total_pendapatan','total_sampah','data_jml_sampah','data_kategori','data_nasabah_terbaik'));
     }
 }

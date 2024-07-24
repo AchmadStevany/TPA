@@ -25,7 +25,7 @@ class LoginController extends Controller
             if(Auth::user()->role=='admin'){
                 return redirect()->intended('/dashboard');
             }else if(Auth::user()->role=='nasabah'){
-                return redirect()->intended('/dashboard-nasabah');
+                return redirect()->intended('/sampah-nasabah');
             }
         }
 
