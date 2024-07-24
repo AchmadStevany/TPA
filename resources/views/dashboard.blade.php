@@ -71,17 +71,22 @@
                     <table id="table2" class="table display cell-border">
                         <thead>
                             <tr>
+                                <th class="col-1">No</th>
                                 <th class="col-2">Nama</th>
                                 <th class="col-2">Alamat</th>
                                 <th class="col-2">Volume Sampah</th>
                                 <th class="col-2">Banyak Sampah</th>
                                 <th class="col-2">Total Pendapatan</th>
-                                <th class="col-2">Nilai</th>
+                                <th class="col-1">Nilai</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
                             @foreach ($data_nasabah_terbaik as $dnn)
                                 <tr>
+                                    <td>{{ $no++ }}</td>
                                     <td>{{ $dnn["nama"] }}</td>
                                     <td>{{ $dnn["alamat"] }}</td>
                                     <td>{{ $dnn["volume"] }}</td>
@@ -178,7 +183,7 @@
         chart.render();
 
     new DataTable('#table2', {
-        order: [[5,'desc']]
+        // order: [[5,'desc']]
     });
 </script>
 @endsection

@@ -21,6 +21,14 @@
                     </div>
                 </div>
             </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">Total Volume Sampah</div>
+                    <div class="card-body">
+                        <h4 class="mb-1 mt-1">{{ $total_volume }}</h4>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Sampah</div>

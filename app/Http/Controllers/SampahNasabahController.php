@@ -22,10 +22,12 @@ class SampahNasabahController extends Controller
         GROUP BY transaksi.tanggal_transaksi, kategori_sampah.nama_kategori_sampah, sampah.sampah, detail_transaksi.quantity, harga");
         foreach ($data_sampah as $ds) {
             $harga[] = $ds->harga;
+            $volume[] = $ds->quantity;
         }
         $total_harga = array_sum($harga);
+        $total_volume = array_sum($volume);
 
-        return view('sampah-nasabah.index', compact('data_sampah','total_harga'));
+        return view('sampah-nasabah.index', compact('data_sampah','total_harga','total_volume'));
     }
 
     // public function create()
