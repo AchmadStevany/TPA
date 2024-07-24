@@ -124,7 +124,7 @@ class DashboardController extends Controller
             $data_nasabah_terbaik[] = [
                 "nama" => $nas->nama,
                 "alamat" => $nas->alamat,
-                "volume" => $nas->volume,
+                "volume" => round($nas->volume),
                 "jenis" => $nas->banyak_jenis_sampah,
                 "pendapatan" => $nas->saldo,
                 "nilai" => $nilai_akhir[$i++]
