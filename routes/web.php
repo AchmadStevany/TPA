@@ -33,6 +33,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Awal
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard2022', [DashboardController::class, 'index2'])->middleware('auth');
 
 //sampah
 Route::get('/sampah', [SampahController::class, 'index'])->name('sampah.index')->middleware('auth');

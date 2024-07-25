@@ -62,8 +62,8 @@
                         <i class="uil-analytics" style="font-size: 40px"></i>
                     </div>
                     <div>
-                        <h5 class="mb-1 mt-1">Tahun 2021</h5>
-                        <a href="/dashboard2022" class="mb-1 mt-1">Tahun Selanjutnya</a>
+                        <h5 class="mb-1 mt-1">Tahun 2022</h5>
+                        <a href="/dashboard" class="mb-1 mt-1">Tahun Sebelumnya</a>
                     </div>
                 </div>
             </div>
